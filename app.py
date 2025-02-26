@@ -9,12 +9,12 @@ app = Flask(__name__)
 load_dotenv()
 
 PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
-
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 
 os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyDu4wr0U2RyJxHxPHBSNtKgXkoMyRu9ROc")
+genai.configure(api_key=GOOGLE_API_KEY)
 
 # Load embeddings and create Pinecone retriever
 embeddings = download_hugging_face_embeddings()
